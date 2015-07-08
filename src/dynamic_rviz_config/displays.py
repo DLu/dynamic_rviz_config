@@ -12,6 +12,9 @@ class Displays(list):
             d['Color'] = '%d; %d; %d'%color
         d.update(fields)
         self.append(d)
+
+    def add_group(self, name, displays):
+        self.add_display(name, 'rviz/Group', fields={'Displays': displays})
         
     def add_model(self, parameter='robot_description'):
         self.add_display('RobotModel', 'rviz/RobotModel', fields={'Robot Description': parameter})
