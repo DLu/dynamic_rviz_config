@@ -50,12 +50,14 @@ class RVizConfig:
     def set_goal(self, topic):
         self.set_tool_topic('rviz/SetGoal', topic)
         
-    def write(self, f):
-        f.write(yaml.dump( self.data, default_flow_style=False))
+    def __repr__(self):
+        return yaml.dump( self.data, default_flow_style=False)
 
-    def run(self):
+    def run(self, debug=False):
         temp = tempfile.NamedTemporaryFile()
-        self.write(temp)
+        temp.write(str(self))
+        if debug:
+            print str(self)
         temp.flush()
 
         import subprocess
