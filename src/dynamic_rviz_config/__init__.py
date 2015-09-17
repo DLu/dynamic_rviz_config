@@ -49,9 +49,16 @@ class RVizConfig:
             if m.get('Class', '')==name:
                 m['Topic'] = topic
                 return
+    def set_fixed_frame(self,frame='map'):
+        v = self.get_visualization()
+        if 'Global Options' not in v:
+            v['Global Options'] = {'Fixed Frame':frame}
 
-    def set_goal(self, topic):
+    def set_goal(self, topic='goal'):
         self.set_tool_topic('rviz/SetGoal', topic)
+
+    def set_initial_pose(self,topic='initialpose'):
+        self.set_tool_topic('rviz/SetInitialPose', topic)
         
     def set_view(self, fields):
         self.get_visualization()['Views'] = {'Current': fields}    

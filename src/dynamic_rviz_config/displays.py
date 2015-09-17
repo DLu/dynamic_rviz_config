@@ -37,8 +37,8 @@ class Displays(list):
             fields['Alpha'] = alpha
         self.add_display(name, 'rviz/LaserScan', topic, color, fields)
 
-    def add_pose_array(self, topic='/particlecloud'):
-        self.add_display('AMCL Cloud', 'rviz/PoseArray', topic)
+    def add_pose_array(self, topic='/particlecloud', color=None):
+        self.add_display('AMCL Cloud', 'rviz/PoseArray', topic, color)
         
     def add_footprint(self, topic, color=(0,170,255)):
         self.add_display('Robot Footprint', 'rviz/Polygon', topic, color)
