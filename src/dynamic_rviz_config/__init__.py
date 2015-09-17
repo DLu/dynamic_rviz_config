@@ -53,6 +53,8 @@ class RVizConfig:
         v = self.get_visualization()
         if 'Global Options' not in v:
             v['Global Options'] = {'Fixed Frame':frame}
+        else:
+            v['Global Options']['Fixed Frame'] = frame
 
     def set_goal(self, topic='goal'):
         self.set_tool_topic('rviz/SetGoal', topic)
