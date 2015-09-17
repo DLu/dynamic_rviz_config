@@ -59,7 +59,7 @@ class RVizConfig:
     def set_goal(self, topic='goal'):
         self.set_tool_topic('rviz/SetGoal', topic)
 
-    def set_initial_pose(self,topic='initialpose'):
+    def set_initial_pose(self, topic='initialpose'):
         self.set_tool_topic('rviz/SetInitialPose', topic)
         
     def set_view(self, fields):
